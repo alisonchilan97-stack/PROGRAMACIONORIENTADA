@@ -1,0 +1,19 @@
+class Persona {
+    private String nombre;  // Atributos protegidos
+
+    public String getNombre() {   // Getter
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {  // Setter
+        this.nombre = nombre;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Persona p = new Persona();
+        p.setNombre("Ana");
+        System.out.println("Nombre: " + p.getNombre());
+    }
+}
