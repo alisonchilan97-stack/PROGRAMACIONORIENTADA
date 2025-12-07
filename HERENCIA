@@ -1,0 +1,21 @@
+// Clase padre
+class Animal {
+    void comer() {
+        System.out.println("El animal está comiendo.");
+    }
+}
+
+// Clase hija
+class Perro extends Animal {
+    void ladrar() {
+        System.out.println("El perro está ladrando.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Perro p = new Perro();
+        p.comer();   // Método heredado
+        p.ladrar();
+    }
+}
