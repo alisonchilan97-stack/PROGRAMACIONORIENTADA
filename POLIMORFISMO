@@ -1,0 +1,29 @@
+class Figura {
+    void dibujar() {
+        System.out.println("Dibujando una figura genérica.");
+    }
+}
+
+class Circulo extends Figura {
+    @Override
+    void dibujar() {
+        System.out.println("Dibujando un círculo.");
+    }
+}
+
+class Cuadrado extends Figura {
+    @Override
+    void dibujar() {
+        System.out.println("Dibujando un cuadrado.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Figura f1 = new Circulo();   // Polimorfismo
+        Figura f2 = new Cuadrado();
+
+        f1.dibujar();
+        f2.dibujar();
+    }
+}
