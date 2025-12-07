@@ -1,4 +1,4 @@
-# POO
+
 ABSTRACCION 
 // Clase abstracta que define lo esencial de un vehículo
 abstract class Vehiculo {
