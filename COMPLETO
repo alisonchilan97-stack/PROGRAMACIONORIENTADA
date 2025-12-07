@@ -1,0 +1,143 @@
+// ESTRUCTURA GENERAL DEL PROYECTO
+// src/
+//   abstraccion/
+//       Figura.java
+//       Circulo.java
+//       Rectangulo.java
+//   encapsulacion/
+//       CuentaBancaria.java
+//   herencia/
+//       Animal.java
+//       Perro.java
+//       Gato.java
+//   polimorfismo/
+//       Operacion.java
+//       Suma.java
+//       Resta.java
+//       MainPolimorfismo.java
+
+//-------------------------------------------
+// PACKAGE: abstraccion
+//-------------------------------------------
+package abstraccion;
+
+abstract class Figura {
+    public abstract double calcularArea();
+}
+
+class Circulo extends Figura {
+    private double radio;
+
+    public Circulo(double radio) {
+        this.radio = radio;
+    }
+
+    @Override
+    public double calcularArea() {
+        return Math.PI * radio * radio;
+    }
+}
+
+class Rectangulo extends Figura {
+    private double ancho;
+    private double alto;
+
+    public Rectangulo(double ancho, double alto) {
+        this.ancho = ancho;
+        this.alto = alto;
+    }
+
+    @Override
+    public double calcularArea() {
+        return ancho * alto;
+    }
+}
+
+//-------------------------------------------
+// PACKAGE: encapsulacion
+//-------------------------------------------
+package encapsulacion;
+
+public class CuentaBancaria {
+    private String titular;
+    private double saldo;
+
+    public CuentaBancaria(String titular, double saldoInicial) {
+        this.titular = titular;
+        this.saldo = saldoInicial;
+    }
+
+    public void depositar(double cantidad) {
+        if (cantidad > 0) saldo += cantidad;
+    }
+
+    public boolean retirar(double cantidad) {
+        if (cantidad > 0 && cantidad <= saldo) {
+            saldo -= cantidad;
+            return true;
+        }
+        return false;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+}
+
+//-------------------------------------------
+// PACKAGE: herencia
+//-------------------------------------------
+package herencia;
+
+class Animal {
+    public void sonido() {
+        System.out.println("El animal hace un sonido");
+    }
+}
+
+class Perro extends Animal {
+    @Override
+    public void sonido() {
+        System.out.println("El perro ladra: ¡Guau guau!");
+    }
+}
+
+class Gato extends Animal {
+    @Override
+    public void sonido() {
+        System.out.println("El gato maúlla: ¡Miau!");
+    }
+}
+
+//-------------------------------------------
+// PACKAGE: polimorfismo
+//-------------------------------------------
+package polimorfismo;
+
+abstract class Operacion {
+    public abstract int calcular(int a, int b);
+}
+
+class Suma extends Operacion {
+    @Override
+    public int calcular(int a, int b) {
+        return a + b;
+    }
+}
+
+class Resta extends Operacion {
+    @Override
+    public int calcular(int a, int b) {
+        return a - b;
+    }
+}
+
+public class MainPolimorfismo {
+    public static void main(String[] args) {
+        Operacion op1 = new Suma();
+        Operacion op2 = new Resta();
+
+        System.out.println("Suma: " + op1.calcular(10, 5));
+        System.out.println("Resta: " + op2.calcular(10, 5));
+    }
+}
